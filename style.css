@@ -20,3 +20,7 @@ form {
     padding: 50px;
     border-radius: 6px;
 }
+
+ul, li {
+    list-style: none;
+}

@@ -12,36 +12,30 @@
     <title>Agnostic address sharer</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Agnostic address sharer</h1>
-
+    <header>
+        <h1>SamGyeopMap</h1>
+    </header>
+        <p>Enter an address in Korea to create link to that address in Google, Naver and Kakao Maps</p>
+        <p>You will also get current Air Quality Index data for that city </p>
+        
         <form id="js-form">
-            
-            <!-- <h2>Manual input</h2>
-           <input id="address" type="text">
-             -->
-
-            <h2>Google autocomplete</h2>
+            <h2>Enter your address in Hangul or English</h2>
             <input id="AC" type="text">
             <input type="submit" value="Find">
         </form>
 
-
-        <!-- <input id="pac-input" class="controls" type="text"> -->
-        
-        
-
-        <p id="js-error-message" class="error-message"></p>
-        <section id="results" class="hidden">
+        <section id='errorMessages' class='hidden'>
+            <p id="js-error-message" class="error-message"></p>
+            <p id="js-aqi-error-message" class="error-message"></p>
         </section>
-    </div>
 
+    <div id="js-display-results"></div>
+    <div id="js-aqi-display-results"></div>
+    <div id="reloadPage"></div>
 
-<div id="js-display-results"> 
-    
-</div>
 
     <script src="script.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB58D6ZX3OPAiYJrToJCxE7g5CybwcASAA&libraries=places"></script>
 </body>
+
 </html>
