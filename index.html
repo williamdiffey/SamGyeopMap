@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-   
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB58D6ZX3OPAiYJrToJCxE7g5CybwcASAA&libraries=places"></script>
     <title>SamGyeopMap</title>
 </head>
 <body>
-    <header>
-        <h1>SamGyeopMap</h1>
+    <header class='header'>
+        <img src="images/SGMlogo.png" class="logo" alt="SamGyeopMap Logo">
+        <!-- <h1>SamGyeopMap</h1> -->
     </header>
-        <p>Enter an address in Korea to create link to that address in Google, Naver and Kakao Maps</p>
-        <p>You will also get current Air Quality Index data for that city </p>
-        
+    
+        <section id="instructions" aria-label="instructions">
+            <p>Enter an address in Korea to create links to that address in Google, Naver and Kakao Maps</p>
+            <p>You will also get current Air Quality Index data for that area</p>
+        </section>
+
         <form id="js-form">
-            <h2>Enter your address in Hangul or English</h2>
-            <input id="AC" type="text">
-            <input type="submit" value="Find">
+            <h2>Enter an address in Hangul or English</h2>
+            <input id="AC" type="text" placeholder="Enter an Address">
+            <input type="submit" value="Find" class="button">
         </form>
 
         <section id='errorMessages' class='hidden'>
@@ -29,13 +32,19 @@
             <p id="js-aqi-error-message" class="error-message"></p>
         </section>
 
-    <div id="js-display-results"></div>
     <div id="js-aqi-display-results"></div>
+    <div id="js-display-results"></div>
     <div id="reloadPage"></div>
 
 
     <script src="script.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB58D6ZX3OPAiYJrToJCxE7g5CybwcASAA&libraries=places"></script>
+    
 </body>
+
+<footer>
+        <p>Please get in touch with any feedback</p>
+        <a href='mailto:william.diffey@protonmail.com'><img src="images/Email.png" class='footIcon' alt="email icon"></a>
+        <a href='https://www.linkedin.com/in/william-diffey-677531184/'><img src="images/Linkedin.png" class='footIcon' alt="linkedin logo"></a>
+</footer>
 
 </html>

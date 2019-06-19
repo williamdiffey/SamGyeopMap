@@ -8,7 +8,8 @@ const aqiKey = 'WxnLijJNB9ho8LCvz';
 function loadPage() {
   $('.reloadPage').hide;
   $('#js-error-message').hide;
-  $('js-display-results').hide;
+  $('#js-aqi-display-results').hide;
+  $('#js-display-results').hide;
   autocomplete();
 }
 
@@ -23,7 +24,6 @@ function autocomplete() {
   $('form').submit(event => {
   event.preventDefault();
   const searchAddress = $('#AC').val().trim();
-  console.log(searchAddress);
   formatAddress(searchAddress);
   })
 }
@@ -58,7 +58,6 @@ function getGeo(address) {
 
 
 function formatQueryParams(params) {
-  console.log(`format query params is working`)
   const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
   return queryItems.join('+CA&');
 }
@@ -71,7 +70,6 @@ function getAQI(LAT, LGN) {
   }
   const aqiQueryString = aqiFormatQueryParams(aqiParams);
   const URL = aqiURL + aqiQueryString; 
-  console.log(URL);
 
       fetch(URL)
         .then(response => {
@@ -88,7 +86,6 @@ function getAQI(LAT, LGN) {
 
 
 function aqiFormatQueryParams(params) {
-  console.log(`format query params is working`)
   const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
   return queryItems.join('&');
 }
@@ -97,14 +94,14 @@ function aqiFormatQueryParams(params) {
 function setLngLat(responseJson) {
   const LAT = responseJson.results[0].geometry.location.lat;
   const LNG = responseJson.results[0].geometry.location.lng;
-  displayLinks(LAT,LNG);
   getAQI(LAT,LNG);
+  displayLinks(LAT,LNG);
+  
 }
 
 
 function setAQI(responseJson) {
   const aqiResult = responseJson.data.current.pollution.aqius;
-  console.log(aqiResult);
   displayAQI(aqiResult);
   
   
@@ -114,26 +111,37 @@ function setAQI(responseJson) {
 function displayLinks(LAT, LNG) {
    $('js-display-results').empty();
    $('form').hide();
+   $('#instructions').hide();
    $('#reloadPage').show();
    $('#js-display-results').append(`
   <section aria-label="Links to map services">
     <ul>
-      <li><a href="http://maps.google.com/maps?q=${LAT},${LNG}" target="_blank">Open in Google Maps</a></li>
-      <li><a href="http://map.naver.com/?elat=${LAT}&elng=${LNG}" target="_blank" >Open in Naver Maps</a></li>
-      <li><a href="http://map.daum.net/link/map/${LAT},${LNG}" target="_blank">Open in Kakao Maps</a></li>
+      <li><a href="http://maps.google.com/maps?q=${LAT},${LNG}" target="_blank">
+        <img src="images/Google.png" alt="Google Maps Logo" class="gmapicon">
+      </a></li>
+      <li><a href="http://map.naver.com/?elat=${LAT}&elng=${LNG}" target="_blank">
+        <img src="images/Naver.png" alt="Naver Maps Logo" class="nmapicon">
+      </a></li>
+      <li><a href="http://map.daum.net/link/map/${LAT},${LNG}" target="_blank">
+        <img src="images/Kakao.png" alt="Kakao Maps Logo"class="kmapicon">
+      </a></li>
     </ul>
   </section>
   `);
   
+// <a href="default.asp">
+  // <img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;border:0">
+  // </a>
+
   reloadPage();
 }
 
 
 function displayAQI(aqi) {
   $('js-aqi-display-results').empty();
-  $('#js-display-results').append(`
+  $('#js-aqi-display-results').append(`
   <section aria-label="AQI data">
-  <p>AQI at this location is currently ${aqi}</p>
+  <p>AQI near this location is currently ${aqi}</p>
   </section>`);
 }
 
