@@ -41,5 +41,5 @@ The other issue to overcome is to find a way to generate income to pay for the h
 <h2>Technology used:</h2>
 HTML/CSS/Javascript & Jquery
 
-<h2>Live Page</h2>
+<h2>Live Page:</h2>
 You can try out SamGyeopMap at this address: https://williamdiffey.github.io/SamGyeopMap/ (at least until my Google credit expires!)
