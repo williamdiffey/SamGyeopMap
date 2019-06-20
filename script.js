@@ -142,7 +142,7 @@ function displayAQI(aqi) {
 
 
 function reloadPage() {
-  $('#reloadPage').append(`<input type="button" class="reloadPage" value="Find another location"></input>`)
+  $('.reloadPage').append(`<input type="button" class="reloadPage" value="Find another location"></input>`)
   $('.reloadPage').click(function (event) {
   location.reload();
   });
