@@ -1,6 +1,6 @@
-SamGyeopMap - Korean cross-service address sharing.
+SamGyeopMap - Korean cross-map service link generator.
 
-
+![SGMLogo](READMEimages/header.png)
 
 Background:
 The Korean online Map market has 4 main players at the time of writing, Google and Apple, as well as domestic offerings from Naver (Naver Maps) and Daum (Kakao Maps). At present Google maps is unable to provide navigation in Korea, in addition its maps are generally less detailed and more likely to be out of date (see attached screen shots for anecdotal examples). To add to the complexity for users, there is increasing integration between apps from the same provider; for example Kakao Maps & Kakao Taxi.
@@ -22,4 +22,5 @@ Next steps:
 The next main step will be to incorporate a back end that would allow users to log in, and keep the results pages of shared locations alive. Businesses will be able to store their location and send the link out to any customers that require it.
 The other issue to overcome is to find a way to generate income to pay for the hosting and the Google API fees. Obvious candidates are ads or fees for premium services such as pages for businesses or saving multiple locations for quick sharing.  
 
-
+Technology used:
+HTML/CSS/Javascript & Jquery
