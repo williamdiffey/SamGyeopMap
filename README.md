@@ -11,7 +11,7 @@ The Korean online Map market has 4 main players at the time of writing, Google a
 
 
 <h2><p align="center">
-<img width="320" height="568" alt="Address Input Page" src="READMEimages/williamdiffey.github.io_SamGyeopMap_(iPhone 5_SE).png">
+<img width="320" height="568" alt="Address Input Page" src="READMEimages/williamdiffey.github.io_SamGyeopMap_(iPhone 5_SE)2.png">
 </p>
 <h4 align="center">Address Input Page with Google Places' Autocomplete</h2>
 
