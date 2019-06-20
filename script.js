@@ -2,6 +2,7 @@
 const geocodeURL = 'https://maps.googleapis.com/maps/api/geocode/json?';
 const googleKey = 'AIzaSyB58D6ZX3OPAiYJrToJCxE7g5CybwcASAA';
 const aqiURL = 'https://api.airvisual.com/v2/nearest_city?';
+// https://api.airvisual.com/v2/nearest_station?' gives more local data but requires payment to AirVisual.
 const aqiKey = 'WxnLijJNB9ho8LCvz';
 
 
@@ -17,10 +18,11 @@ function loadPage() {
 function autocomplete() {
   var input = document.getElementById('AC');
   var options = {
-  // types: ['(geocode)'],
+  // types: ['(cities)'], this option is not used at this time but I will leave it in as I may wish to restrict search options in future interations
   componentRestrictions: { country: "kr" }
   };
-  var autocomplete = new google.maps.places.Autocomplete(input, options);
+//   line 24 simply loads in Google places autocomplete
+  var autocomplete = new google.maps.places.Autocomplete(input, options); 
   $('form').submit(event => {
   event.preventDefault();
   const searchAddress = $('#AC').val().trim();
@@ -28,7 +30,7 @@ function autocomplete() {
   })
 }
 
-
+// replaces white spaces in address input with +
 function formatAddress(searchAddress) {
   let cleanAddress = searchAddress.replace(/\s+/g, '+');
   getGeo(cleanAddress);
@@ -80,7 +82,7 @@ function getAQI(LAT, LGN) {
         })
         .then(responseJson => setAQI(responseJson))
         .catch(err => {
-          $('#js-aqi-error-message').text(`We had a problem getting AQI data: ${err.message}`);
+          $('#js-aqi-error-message').text(`We had a problem getting AQI data. ${err.message}`);
         });
 }
 
@@ -96,15 +98,12 @@ function setLngLat(responseJson) {
   const LNG = responseJson.results[0].geometry.location.lng;
   getAQI(LAT,LNG);
   displayLinks(LAT,LNG);
-  
 }
 
 
 function setAQI(responseJson) {
   const aqiResult = responseJson.data.current.pollution.aqius;
   displayAQI(aqiResult);
-  
-  
 }
 
 
@@ -129,12 +128,8 @@ function displayLinks(LAT, LNG) {
   </section>
   `);
   
-// <a href="default.asp">
-  // <img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;border:0">
-  // </a>
-
-  reloadPage();
-}
+ reloadPage();
+ }
 
 
 function displayAQI(aqi) {
