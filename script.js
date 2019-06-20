@@ -144,8 +144,10 @@ function displayAQI(aqi) {
 function reloadPage() {
   $('#reloadPage').append(`<input type="button" class="reloadPage" value="Find another location"></input>`)
   $('.reloadPage').click(function (event) {
-  location.reload();
-  });
+    $('#js-aqi-error-message').empty();
+    $('#js-error-message').empty();
+    location.reload();
+    });
 }
 
 
