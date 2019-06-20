@@ -1,6 +1,6 @@
 SamGyeopMap - Korean cross-map service link generator.
 
-![SGMLogo](READMEimages/header.png)
+![SGMLogo](READMEimages/Header.png)
 
 Background:
 The Korean online Map market has 4 main players at the time of writing, Google and Apple, as well as domestic offerings from Naver (Naver Maps) and Daum (Kakao Maps). At present Google maps is unable to provide navigation in Korea, in addition its maps are generally less detailed and more likely to be out of date (see attached screen shots for anecdotal examples). To add to the complexity for users, there is increasing integration between apps from the same provider; for example Kakao Maps & Kakao Taxi.
